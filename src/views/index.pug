@@ -1,0 +1,34 @@
+doctype html 
+html(lang='pt-br')
+  head
+    meta(charset='utf-8')
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    block head
+      title Semana de Prática 04
+  body
+    h1 Semana de Prática 04
+    h3 por: Cinthia Mie Nagahama Ungefehr
+
+    form(action='/' method='POST' autocomplete='off')
+      fieldset
+        legend Cadastrar novo aluno
+
+        label(for='nome') Nome do Aluno
+        input(type='text' name='nome' required)
+
+        label(for='matricula') Matrícula do Aluno
+        input(type='text' name='matricula' required)
+        
+        label(for='data_nascimento') Data de Nascimento
+        input(type='date' name='data_nascimento' required)
+
+        input(type='submit' value='Enviar')
+
+    if students
+      h3 Alunos Cadastrados:
+      ul
+        each student in students
+          include ../mixins/showStudents
+          +showStudent(student)
+    span Acesse o código no meu 
+      a(href='https://github.com/CinthiaNagahama/semana-pratica-04' target='blank') GitHub
